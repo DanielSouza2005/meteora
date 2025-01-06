@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Botao from "@/components/Botao";
 import Quantidade from "@/components/Quantidade";
 import ValorFormatado from "@/components/ValorFormatado";
 import InfoItemCarrinho from "./InfoItemCarrinho";
+import { CarrinhoContext } from "@/context/CarrinhoContext";
 
-const ItemCarrinho = ({
-  itemCarrinho,
-  removerProdutoCarrinho,
-  adicionarProduto,
-  removerProduto,
-}) => {
+const ItemCarrinho = ({ itemCarrinho }) => {
+
+  const { aoRemoverProdutoDoCarrinho } = useContext(CarrinhoContext);
+
   return (
     <li key={itemCarrinho.id}>
       <>
@@ -23,13 +22,11 @@ const ItemCarrinho = ({
           <ValorFormatado valor={itemCarrinho.preco} />
           <Quantidade
             itemCarrinho={itemCarrinho}
-            adicionarProduto={adicionarProduto}
-            removerProduto={removerProduto}
           />
           <Botao
             variant="deleteItem"
             aria-label="Excluir"
-            handleClick={() => removerProdutoCarrinho(itemCarrinho.id)}
+            handleClick={() => aoRemoverProdutoDoCarrinho(itemCarrinho.id)}
           >
             delete_forever
           </Botao>

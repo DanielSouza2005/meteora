@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Botao from "@/components/Botao";
 import { formatadorMoeda } from "@/utils/formatadorMoeda";
+import { CarrinhoContext } from "@/context/CarrinhoContext";
 
 const Produto = ({
   src,
@@ -8,9 +9,11 @@ const Produto = ({
   alt,
   titulo,
   descricao,
-  preco,
-  adicionarProduto,
+  preco
 }) => {
+
+  const { aoAdicionarProduto } = useContext(CarrinhoContext);
+
   return (
     <div className="col-12 col-md-6 col-xxl-4 pb-4">
       <div className="card">
@@ -25,7 +28,7 @@ const Produto = ({
             type="button"
             className="border-0"
             handleClick={() =>
-              adicionarProduto({ src, alt, id, titulo, descricao, preco })
+              aoAdicionarProduto({ src, alt, id, titulo, descricao, preco })
             }
           >
             Adicionar ao carrinho
