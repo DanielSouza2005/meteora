@@ -4,13 +4,8 @@ import ListaProdutosCarrinho from "@/components/ListaProdutosCarrinho";
 import TotalCarrinho from "./TotalCarrinho";
 import Titulo from "@/components/Titulo";
 
-const CarrinhoSuspenso = ({
-  carrinho,
-  adicionarProduto,
-  removerProduto,
-  removerProdutoCarrinho,
-  valorTotalCarrinho,
-}) => {
+const CarrinhoSuspenso = () => {
+
   return (
     <div
       className="offcanvas offcanvas-end text-bg-dark"
@@ -31,16 +26,12 @@ const CarrinhoSuspenso = ({
           type="button"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
-        ></Botao>
+        >          
+        </Botao>
       </div>
       <div className="offcanvas-body">
-        <ListaProdutosCarrinho
-          carrinho={carrinho}
-          adicionarProduto={adicionarProduto}
-          removerProduto={removerProduto}
-          removerProdutoCarrinho={removerProdutoCarrinho}
-        />
-        <TotalCarrinho valorTotalCarrinho={valorTotalCarrinho} />
+        <ListaProdutosCarrinho />
+        {/* <TotalCarrinho valorTotalCarrinho={valorTotalCarrinho} /> */}
       </div>
     </div>
   );
