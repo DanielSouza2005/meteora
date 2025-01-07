@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import Botao from "@/components/Botao";
 import { formatadorMoeda } from "@/utils/formatadorMoeda";
-import { CarrinhoContext } from "@/context/CarrinhoContext";
+import { useCarrinhoContext } from "@/hooks/useCarrinhoContext";
 
 const Produto = ({
   src,
@@ -12,7 +12,7 @@ const Produto = ({
   preco
 }) => {
 
-  const { aoAdicionarProduto } = useContext(CarrinhoContext);
+  const { aoAdicionarProduto } = useCarrinhoContext();
 
   return (
     <div className="col-12 col-md-6 col-xxl-4 pb-4">

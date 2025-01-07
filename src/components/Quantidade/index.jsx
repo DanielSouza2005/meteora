@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import Botao from "@/components/Botao";
 import Titulo from "@/components/Titulo";
 import { useLocation } from "react-router-dom";
-import { CarrinhoContext } from "@/context/CarrinhoContext";
+import { useCarrinhoContext } from "@/hooks/useCarrinhoContext";
 
 const Quantidade = ({ itemCarrinho }) => {
 
   const location = useLocation();
-  const { aoAdicionarProduto, aoRemoverProduto } = useContext(CarrinhoContext);
+  const { aoAdicionarProduto, aoRemoverProduto } = useCarrinhoContext();
 
   return (
     <div
